@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from api.routes.books import router as books_router 
+
 from api.router import api_router
 from core.config import settings
 
@@ -14,7 +16,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(api_router, prefix=settings.API_PREFIX)
+app.include_router(api_router)
 
 
 @app.get("/healthcheck")

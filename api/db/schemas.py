@@ -84,3 +84,5 @@ class InMemoryDB:
         """
         if book_id in self.books:
             del self.books[book_id]
+            return True
+        return False
