@@ -23,3 +23,11 @@ app.include_router(api_router)
 async def health_check():
     """Checks if server is active."""
     return {"status": "active"}
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello, FastAPI is working!"}
+
+@app.get("/api/v1/books/1")
+def get_book():
+    return {"id": 1, "title": "FastAPI Guide"}
